@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import VideoModalStyle from './VideoModal.module.css';
 import SpeakerCard from '../../../components/SpeakerCard';
