@@ -1,0 +1,15 @@
+.topicButton {
+  border: 1px solid #a6a6a6;
+  box-sizing: border-box;
+  border-radius: 9px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  background-color: transparent;
+  margin-top: 20px;
+  padding: 9px;
+  color: #005188;
+}

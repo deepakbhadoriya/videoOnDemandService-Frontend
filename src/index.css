@@ -1,0 +1,52 @@
+.primary-color {
+  color: #0869a8;
+}
+
+.primary-background {
+  background-color: #0869a8;
+}
+
+.while-color {
+  color: #fff;
+}
+
+.white-background {
+  background-color: #fff;
+}
+
+.box-shadow {
+  box-shadow: #cccccc 0px 0px 50px;
+}
+
+.button-round {
+  border-radius: 50%;
+}
+
+.subHeading {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.subHeading2 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* body scroll bar  */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0869a8;
+  outline: 1px solid slategrey;
+}
