@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import VideoModalStyle from './VideoModal.module.css';
 import SpeakerCard from '../../../components/SpeakerCard';
 import VideoHorizontalCard from '../../../components/VideoHorizontalCard';
 import getEmbedLink from '../../../utils/getEmbedLink';
 
-const VideoModal = ({ recommendedVideos, selectVideo, onClose }) => {
+const VideoModal = ({ setSelectedVideo, recommendedVideos, selectVideo, onClose }) => {
   return (
     selectVideo && (
       <div className={VideoModalStyle.modalOuterContainer} onClick={onClose}>
@@ -30,7 +30,7 @@ const VideoModal = ({ recommendedVideos, selectVideo, onClose }) => {
               <div className="col-lg-8 col-12">
                 <span className={VideoModalStyle.title}>{selectVideo.title}</span>
                 {selectVideo.topics.map((topic) => (
-                  <button className={VideoModalStyle.topicButton + ' mr-2'}>
+                  <button key={topic._id} className={VideoModalStyle.topicButton + ' mr-2'}>
                     Topic: {topic.name}
                   </button>
                 ))}
@@ -51,11 +51,13 @@ const VideoModal = ({ recommendedVideos, selectVideo, onClose }) => {
             <div className="row px-lg-5 px-4 py-3">
               <div className="col-lg-8 col-12 subHeading">More Videos</div>
               {recommendedVideos.map((video, index) => (
-                <VideoHorizontalCard
-                  className="col-lg-8 col-12 mt-4 mb-1 "
-                  video={video}
-                  key={video._id}
-                />
+                <span key={video._id} onClick={() => setSelectedVideo(video)}>
+                  <VideoHorizontalCard
+                    className="col-lg-8 col-12 mt-4 mb-1 "
+                    video={video}
+                    key={video._id}
+                  />
+                </span>
               ))}
             </div>
           </div>

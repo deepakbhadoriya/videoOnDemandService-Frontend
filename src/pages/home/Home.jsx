@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import _ from 'lodash';
 
 import HomeStyle from './Home.module.css';
 import Header from './components/Header';
@@ -135,6 +134,7 @@ const Home = () => {
         recommendedVideos={videos}
         onClose={() => setSelectedVideo(false)}
         selectVideo={selectedVideo}
+        setSelectedVideo={setSelectedVideo}
       />
     </>
   );

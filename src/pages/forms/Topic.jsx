@@ -36,20 +36,20 @@ const Topic = ({ history }) => {
           <div className="col-6">
             <h3 className="my-5">Topic Details</h3>
             <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Topic Name</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Topic Name</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   value={formData.name}
                   name="name"
                   onChange={onChange}
                 />
               </div>
-              <button type="submit" class="btn btn-primary mr-4" onClick={handleSubmit}>
+              <button type="submit" className="btn btn-primary mr-4" onClick={handleSubmit}>
                 Submit
               </button>
-              <button type="submit" class="btn btn-secondary" onClick={() => history.push('/')}>
+              <button type="submit" className="btn btn-secondary" onClick={() => history.push('/')}>
                 Back
               </button>
             </form>
@@ -63,7 +63,7 @@ const Topic = ({ history }) => {
             <h3 className="col-12 mt-5 mb-4">All Topic</h3>
             {topics &&
               topics.map((topic) => (
-                <div className="col-12">
+                <div className="col-12" key={topic._id}>
                   <button className={Style.topicButton}>
                     Topic: {topic.name}
                     <span

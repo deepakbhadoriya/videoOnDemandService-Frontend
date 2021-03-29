@@ -42,42 +42,42 @@ const Speaker = ({ history }) => {
           <div className="col-6">
             <h3 className="my-5">Speaker Details</h3>
             <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Speaker Name</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Speaker Name</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   value={formData.name}
                   name="name"
                   onChange={onChange}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Speaker highest Education</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Speaker highest Education</label>
 
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   value={formData.highestEdu}
                   name="highestEdu"
                   onChange={onChange}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Image Url</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Image Url</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   value={formData.imageUrl}
                   name="imageUrl"
                   onChange={onChange}
                 />
               </div>
 
-              <button type="submit" class="btn btn-primary mr-4" onClick={handleSubmit}>
+              <button type="submit" className="btn btn-primary mr-4" onClick={handleSubmit}>
                 Submit
               </button>
-              <button type="submit" class="btn btn-secondary" onClick={() => history.push('/')}>
+              <button type="submit" className="btn btn-secondary" onClick={() => history.push('/')}>
                 Back
               </button>
             </form>
@@ -88,7 +88,7 @@ const Speaker = ({ history }) => {
             <h3 className="col-12 mt-5 mb-4">All Speaker</h3>
             {speakers &&
               speakers.map((speaker) => (
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex' }} key={speaker._id}>
                   <SpeakerCard className=" col-6 mt-3" speaker={speaker} />
                   <div style={{ alignItems: 'center', display: 'flex' }}>
                     <div

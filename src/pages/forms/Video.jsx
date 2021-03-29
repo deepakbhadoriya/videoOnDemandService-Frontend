@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Style from './Style.module.css';
@@ -68,40 +68,40 @@ const Video = ({ history }) => {
           <div className="col-6">
             <h3 className="my-5">Video Details</h3>
             <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Video Name</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Video Name</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   value={formData.title}
                   name="title"
                   onChange={onChange}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Video Description</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Video Description</label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   value={formData.description}
                   name="description"
                   onChange={onChange}
                 ></textarea>
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">ThumbnailUrl</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">ThumbnailUrl</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   value={formData.thumbnailUrl}
                   name="thumbnailUrl"
                   onChange={onChange}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Video Url</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Video Url</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   value={formData.videoUrl}
                   name="videoUrl"
                   onChange={onChange}
@@ -111,7 +111,7 @@ const Video = ({ history }) => {
               <div className="row my-2">
                 {formData.speakers &&
                   formData.speakers.map((speaker) => (
-                    <>
+                    <Fragment key={speaker._id}>
                       <SpeakerCard className=" col-4 mt-3" speaker={speaker} />
                       <div style={{ alignItems: 'center', display: 'flex' }}>
                         <div
@@ -129,35 +129,40 @@ const Video = ({ history }) => {
                           X
                         </div>
                       </div>
-                    </>
+                    </Fragment>
                   ))}
               </div>
 
-              <div class="input-group my-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">
+              <div className="input-group my-3">
+                <div className="input-group-prepend">
+                  <label className="input-group-text" htmlFor="inputGroupSelect01">
                     Speakers
                   </label>
                 </div>
                 <select
-                  class="custom-select"
+                  className="custom-select"
                   id="inputGroupSelect01"
                   value=""
                   onChange={onSpeakerChange}
                 >
-                  <option selected>Choose...</option>
+                  <option defaultValue>Choose...</option>
                   {speakers &&
                     speakers
                       .filter(
                         (speaker) => !formData.speakers.find((item) => item._id === speaker._id)
                       )
-                      .map((speaker) => <option value={speaker._id}>{speaker.name}</option>)}
+                      .map((speaker) => (
+                        <option key={speaker._id} value={speaker._id}>
+                          {speaker.name}
+                        </option>
+                      ))}
                 </select>
               </div>
 
               {formData.topics &&
                 formData.topics.map((topic) => (
                   <button
+                    key={topic._id}
                     onClick={(e) => e.preventDefault()}
                     className={Style.topicButton + ' mr-2 mt-2'}
                   >
@@ -177,30 +182,34 @@ const Video = ({ history }) => {
                   </button>
                 ))}
 
-              <div class="input-group my-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">
+              <div className="input-group my-3">
+                <div className="input-group-prepend">
+                  <label className="input-group-text" htmlFor="inputGroupSelect01">
                     Topics
                   </label>
                 </div>
                 <select
-                  class="custom-select"
+                  className="custom-select"
                   id="inputGroupSelect01"
                   value=""
                   onChange={onTopicChange}
                 >
-                  <option selected>Choose...</option>
+                  <option defaultValue>Choose...</option>
                   {topics &&
                     topics
                       .filter((topic) => !formData.topics.find((item) => item._id === topic._id))
-                      .map((topic) => <option value={topic._id}>{topic.name}</option>)}
+                      .map((topic) => (
+                        <option key={topic._id} value={topic._id}>
+                          {topic.name}
+                        </option>
+                      ))}
                 </select>
               </div>
 
-              <button type="submit" class="btn btn-primary mr-4" onClick={handleSubmit}>
+              <button type="submit" className="btn btn-primary mr-4" onClick={handleSubmit}>
                 Submit
               </button>
-              <button type="submit" class="btn btn-secondary" onClick={() => history.push('/')}>
+              <button type="submit" className="btn btn-secondary" onClick={() => history.push('/')}>
                 Back
               </button>
             </form>
@@ -211,7 +220,7 @@ const Video = ({ history }) => {
             <h3 className="col-12 mt-5 mb-4">All Video</h3>
             {videos &&
               videos.map((video) => (
-                <>
+                <Fragment key={video._id}>
                   <VideoHorizontalCard className="col-12 mt-3 mb-2 " video={video} />
                   <div className="col-12">
                     <button
@@ -221,7 +230,7 @@ const Video = ({ history }) => {
                       Delete
                     </button>
                   </div>
-                </>
+                </Fragment>
               ))}
           </div>
         </div>

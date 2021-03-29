@@ -22,7 +22,7 @@ const TopBarMenu = () => {
             aria-expanded="false"
           >
             <div
-              class={TopBarMenuStyle.dropdown + ' dropdown-menu'}
+              className={TopBarMenuStyle.dropdown + ' dropdown-menu'}
               aria-labelledby="dropdownMenuButton"
             >
               <span
